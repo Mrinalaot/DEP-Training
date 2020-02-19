@@ -9,7 +9,7 @@ body {
 
 header {
     background-color: rgb(39, 56, 82);
-    padding: 10px 100px 10px;
+    padding: 10px 1px 10px;
     text-align: center;
     font-size: 25px;
 }
@@ -112,8 +112,6 @@ footer {
     height: 50px;
 }
 
-@media (max-width: 600px) {}
-
 #categories {
     width: 170px;
     border: 2px solid rgb(39, 56, 82);
@@ -124,6 +122,7 @@ footer {
 #email {
     border: 0px;
     padding: 5px;
+    border: 2px solid rgb(39, 56, 82);
 }
 
 #subscribe {
@@ -131,11 +130,34 @@ footer {
     background-color: rgb(39, 56, 82);
     color: white;
     padding: 7px;
+    position: relative;
 }
 
 .subscribeInput {
-    border: 2px solid rgb(39, 56, 82);
     display: flex;
     flex-wrap: wrap;
     min-width: 220px;
+}
+
+@media (max-width: 700px) {
+    .flex-container {
+        display: flex;
+        flex-direction: column;
+    }
+    .flex-container :nth-child(1) {
+        order: 1;
+    }
+    .flex-container :nth-child(2) {
+        order: 2;
+    }
+    .flex-container :nth-child(3) {
+        order: 3;
+    }
+    .news-info {
+        margin-left: 0px;
+        flex-basis: 100%;
+    }
+    main {
+        margin: 20px;
+    }
 }
