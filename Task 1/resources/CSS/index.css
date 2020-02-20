@@ -96,7 +96,7 @@ main div hr {
     font-weight: normal;
 }
 
-#read-full-news-btn {
+.read-full-news-btn {
     border: 0px;
     background-color: rgb(216, 91, 72);
     padding: 10px;
