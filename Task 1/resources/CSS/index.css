@@ -101,6 +101,13 @@ main div hr {
     background-color: rgb(216, 91, 72);
     padding: 10px;
     color: rgb(255, 255, 255);
+    border-radius: 5px;
+}
+
+.read-full-news-btn:hover {
+    background-color: rgb(245, 242, 241);
+    color: rgb(216, 91, 72);
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
 
 footer {
