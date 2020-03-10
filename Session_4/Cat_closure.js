@@ -1,25 +1,34 @@
 // Let's make a Cat constructor!
 // http://www.codewars.com/kata/using-closures-to-share-class-state
 
-var avgWeight = 0;
-var counter = 0;
-
 function Cat(name, weight) {
-    counter++;
-    if (counter == 1) {
-        avgWeight = weight;
-    } else {
-        avgWeight = (avgWeight + weight) / 2;
-    }
-
     if (name == undefined || weight == undefined) {
-        throw new Error("Not Defined");
+        throw new Error("name and weight not defined");
     }
-    this.name = name;
-    this.weight = weight;
+    if (Cat.counter) {
+        Cat.counter++;
+    } else {
+        Cat.counter = 1;
+    }
+    if (Cat.Sum) {
+        Cat.Sum += weight;
+    } else {
+        Cat.Sum = weight;
+    }
+    Object.defineProperty(this, "name", {
+        get: () => name,
+        set: (newName) => name = newName
+    });
+    Object.defineProperty(this, "weight", {
+        get: () => weight,
+        set: (newWeight) => {
+            Cat.Sum -= weight;
+            weight = newWeight;
+            Cat.Sum += weight;
+        }
+    });
 }
 
-
-Cat.averageWeight = function() {
-    return avgWeight;
-};
+Object.defineProperty(Cat, "averageWeight", {
+    value: () => Cat.Sum / Cat.counter
+});

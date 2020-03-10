@@ -11,6 +11,4 @@ function prefill(n, v) {
         return [v];
     else
         return [v].concat(prefill(n - 1, v));
-    //    var arr = new Array(n);
-    //    return arr.fill(v)
 }
