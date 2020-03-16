@@ -3,12 +3,11 @@
 
 function compose(...args) {
 
-    return function(a) {
-        let result = a;
+    return function(result) {
         for (let i = args.length - 1; i >= 0; i--) {
             const fun = args[i];
             result = fun(result)
         }
-        return res;
+        return result;
     }
 }

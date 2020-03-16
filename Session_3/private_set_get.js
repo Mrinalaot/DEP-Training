@@ -2,7 +2,7 @@
 // http://www.codewars.com/kata/can-you-keep-a-secret
 
 function createSecretHolder(secret) {
-    var _secret = secret;
+    let _secret = secret;
     return {
         setSecret: function(newSecret) {
             _secret = newSecret;

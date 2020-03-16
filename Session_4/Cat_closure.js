@@ -2,7 +2,7 @@
 // http://www.codewars.com/kata/using-closures-to-share-class-state
 
 function Cat(name, weight) {
-    if (name == undefined || weight == undefined) {
+    if (!name || !weight) {
         throw new Error("name and weight not defined");
     }
     if (Cat.counter) {
