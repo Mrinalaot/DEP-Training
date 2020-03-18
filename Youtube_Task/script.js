@@ -1,20 +1,25 @@
+// When DOM tree is loaded trigger Event Listners
 document.addEventListener("DOMContentLoaded", function() {
     var input = document.getElementById("search-input");
     var inputBtn = document.getElementById("search-btn");
 
+	// When "Enter" is pressed, do perform search
     input.addEventListener("keyup", function(event) {
         if (event.keyCode === 13) {
             event.preventDefault();
             document.getElementById("search-btn").click();
         }
     });
+	// When search button clicked perform search
     inputBtn.addEventListener("click", function() {
         doSearch();
     });
 });
 
+// For showing initial videos rather showing blank page
 window.addEventListener("load", function() { document.getElementById("search-btn").click(); });
 
+// Render footer by JS
 document.addEventListener("DOMContentLoaded", loadFooter);
 
 function loadFooter() {
@@ -40,11 +45,11 @@ function nextPage() {
 
 }
 
-
+// Fetching data through API call
 function doSearch() {
     var searchedText = document.getElementById("search-input");
     var key = "AIzaSyBCnKXDJl3SLRxPj3ib1WH0s2U6hxM8rdY";
-    var maxResults = 6;
+    var maxResults = 15;
     let url = ""
 
     if (pagecount) {
@@ -65,11 +70,11 @@ function doSearch() {
         });
 }
 
+// Displaying Result in a good format
 function displayResult(data) {
     nextPageToken = data.nextPageToken;
     var mainNode = document.getElementById("main");
     mainNode.innerHTML = "";
-    console.log(data.items);
 
     data.items.forEach(element => {
         var thumb = element.snippet.thumbnails.medium.url;
